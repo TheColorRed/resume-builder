@@ -1,0 +1,5 @@
+<mat-form-field>
+  <mat-label>{{label || (name|titlecase) || ''}}</mat-label>
+  <textarea matInput [name]="name" [(ngModel)]="value"
+            [style.height]="height+'px'" [required]="required"></textarea>
+</mat-form-field>

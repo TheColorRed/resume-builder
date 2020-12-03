@@ -1,0 +1,12 @@
+<div class="section">
+  <div *ngFor="let skill of resume.skills" fxLayout="row"
+       fxLayout.lt-md="column" fxLayoutGap="1rem">
+    <app-input fxFlex="0 1" name="name" label="Skill" [(ngModel)]="skill.name"
+               [required]="true" #skillName></app-input>
+    <app-input fxFlex="0 1" name="name" label="Years of experience"
+               [(ngModel)]="skill.years" type="number">
+    </app-input>
+    <app-rating fxFlex="0 1" [min]="1" [max]="10" fxLayoutAlign="start center"
+                [(ngModel)]="skill.proficiency"></app-rating>
+  </div>
+</div>

@@ -1,0 +1,17 @@
+:host {
+  .job {
+    margin-bottom: 1rem;
+    .job-header {
+      & > ::after {
+        content: '';
+        padding-right: 10px;
+      }
+      & > :not(:first-child) {
+        &::before {
+          content: '/';
+          padding-right: 10px;
+        }
+      }
+    }
+  }
+}

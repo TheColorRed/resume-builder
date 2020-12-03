@@ -3,7 +3,10 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  HASURA_API_CONNECTION: {
+    endpoint: 'https://resume-builder.hasura.app/v1/graphql'
+  }
 };
 
 /*

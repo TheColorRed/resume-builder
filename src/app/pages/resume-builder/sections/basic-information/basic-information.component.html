@@ -1,0 +1,12 @@
+<div class="section">
+  <app-input name="name" [required]="true" [(ngModel)]="resume.name">
+  </app-input>
+  <div fxLayout="row" fxLayoutGap="1rem">
+    <app-input fxFlex="0 1" type="number" name="phone"
+               [(ngModel)]="resume.contact.phone"></app-input>
+    <app-input fxFlex="0 1" type="number" name="fax"
+               [(ngModel)]="resume.contact.fax"></app-input>
+    <app-input fxFlex="0 1" type="email" name="email"
+               [(ngModel)]="resume.contact.email"></app-input>
+  </div>
+</div>

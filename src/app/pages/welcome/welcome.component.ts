@@ -1,15 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core'
+import { UserService } from '../../services/user.service'
 
 @Component({
   selector: 'app-welcome',
   templateUrl: './welcome.component.html',
   styleUrls: ['./welcome.component.scss']
 })
-export class WelcomeComponent implements OnInit {
+export class WelcomeComponent {
 
-  constructor() { }
-
-  ngOnInit(): void {
-  }
+  public constructor(public readonly user: UserService) { }
 
 }

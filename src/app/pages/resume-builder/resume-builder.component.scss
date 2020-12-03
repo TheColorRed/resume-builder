@@ -1,0 +1,62 @@
+:host::ng-deep {
+  section:not(:last-child) {
+    margin-bottom: 4rem;
+  }
+  .tab-content {
+    padding: 10px;
+
+    .theme-buttons {
+      margin-bottom: 1rem;
+    }
+
+    .controls {
+      flex: 1;
+      background-color: transparent;
+      mat-horizontal-stepper {
+        background-color: transparent;
+        ::ng-deep {
+          .section {
+            padding: 1rem;
+            position: relative;
+            margin-top: 0.5rem;
+            &:not(:first-child) {
+              margin-top: 1rem;
+            }
+            box-shadow: 0 0 3px rgba($color: #000000, $alpha: 0.2), 0 3px 3px rgba($color: #000000, $alpha: 0.2);
+          }
+        }
+      }
+    }
+
+    .paper {
+      background-color: #ffffff;
+      padding: 2rem;
+      box-shadow: 0 0 3px rgba($color: #000000, $alpha: 0.2), 0 3px 3px rgba($color: #000000, $alpha: 0.2);
+      flex: 1;
+    }
+  }
+
+  .list-item-gap:not(:last-child) {
+    margin-bottom: 2rem;
+  }
+
+  .save,
+  .print {
+    position: fixed;
+    z-index: 100;
+  }
+  .save {
+    bottom: 2rem;
+    right: 2rem;
+  }
+  .print {
+    bottom: 2rem;
+    right: 6rem;
+  }
+  .add-value {
+    position: fixed !important;
+    z-index: 100 !important;
+    bottom: 6.5rem !important;
+    right: 2.5rem !important;
+  }
+}

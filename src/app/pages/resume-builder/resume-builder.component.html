@@ -1,0 +1,68 @@
+<div>
+  <mat-tab-group [animationDuration]="'200ms'">
+    <mat-tab label="Information">
+      <div class="tab-content">
+        <div class="controls">
+          <mat-horizontal-stepper #stepper
+                                  (selectionChange)="stepChanged($event)">
+            <mat-step>
+              <ng-template matStepLabel>Basic Information</ng-template>
+              <app-basic-information [resume]="resume"></app-basic-information>
+            </mat-step>
+            <mat-step #skillStep>
+              <ng-template matStepLabel>Skills</ng-template>
+              <app-skills #skills [resume]="resume"></app-skills>
+            </mat-step>
+            <mat-step #edStep>
+              <ng-template matStepLabel>Education</ng-template>
+              <app-education [resume]="resume"></app-education>
+            </mat-step>
+            <mat-step #empStep>
+              <ng-template matStepLabel>Employment</ng-template>
+              <app-employment [resume]="resume"></app-employment>
+            </mat-step>
+          </mat-horizontal-stepper>
+        </div>
+      </div>
+    </mat-tab>
+    <mat-tab label="Preview" #previewTab>
+      <div class="tab-content">
+        <div class="theme-buttons">
+          <mat-button-toggle-group [value]="theme" (change)="setTheme($event)">
+            <mat-button-toggle mat-raised-button *ngFor="let theme of themes"
+                               [value]="theme.key">
+              {{theme.label}}
+            </mat-button-toggle>
+          </mat-button-toggle-group>
+        </div>
+        <div class="paper">
+          <app-basic-theme *ngIf="theme === Theme.Basic"></app-basic-theme>
+        </div>
+      </div>
+    </mat-tab>
+  </mat-tab-group>
+  <div>
+    <button mat-mini-fab color="accent" class="add-value"
+            *ngIf="stepper.selected?.content.elementRef === edStep.content.elementRef"
+            (click)="addEducation()">
+      <span class="material-icons">add</span>
+    </button>
+    <button mat-mini-fab color="accent" class="add-value"
+            *ngIf="stepper.selected?.content.elementRef === empStep.content.elementRef"
+            (click)="addEmployment()">
+      <span class="material-icons">add</span>
+    </button>
+    <button mat-mini-fab color="accent" class="add-value"
+            *ngIf="stepper.selected?.content.elementRef === skillStep.content.elementRef"
+            (click)="addSkill()">
+      <span class="material-icons">add</span>
+    </button>
+    <button mat-fab color="primary" class="save" (click)="save()">
+      <span class="material-icons">save</span>
+    </button>
+    <button mat-fab color="primary" class="print" (click)="print()"
+            *ngIf="previewTab.isActive">
+      <span class="material-icons">print</span>
+    </button>
+  </div>
+</div>

@@ -1,0 +1,10 @@
+@import '../../../theme/secondary';
+
+:host {
+  .ratings {
+    cursor: pointer;
+    flex-wrap: nowrap;
+    display: flex;
+    color: map-get($map: $custom-accent, $key: 500);
+  }
+}

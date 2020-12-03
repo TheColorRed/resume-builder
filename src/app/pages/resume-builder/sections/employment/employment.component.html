@@ -1,0 +1,42 @@
+<p><strong>Note:</strong> Employment order does not matter they
+  will be sorted by <strong>start date</strong> automatically.</p>
+<div *ngFor="let job of resume.jobs;index as jobIndex" class="section">
+  <app-input name="company" [(ngModel)]="job.company" [required]="true">
+  </app-input>
+  <app-input name="title" [(ngModel)]="job.jobTitle">
+  </app-input>
+  <div fxLayoutGap="1rem">
+    <app-input fxFlex="0 1" type="month" name="startDate" label="Start Date"
+               [(ngModel)]="job.start"></app-input>
+    <app-input fxFlex="0 1" type="month" name="endDate" label="End Date"
+               [(ngModel)]="job.end"></app-input>
+  </div>
+  <app-textarea name="job-description" [height]="100"
+                [(ngModel)]="job.description">
+  </app-textarea>
+
+  <p class="bold" *ngIf="job.contacts?.length>0">{{job.company}} Contacts</p>
+  <div class="contact"
+       *ngFor="let contact of job.contacts;index as contactIndex">
+    <app-input name="contactName" label="Contact Name"
+               [(ngModel)]="contact.name"></app-input>
+    <div fxLayout="row" fxLayoutGap="1rem">
+      <app-input fxFlex="0 1" type="number" name="phone"
+                 [(ngModel)]="contact.phone"></app-input>
+      <app-input fxFlex="0 1" type="number" name="fax"
+                 [(ngModel)]="contact.fax"></app-input>
+      <app-input fxFlex="0 1" type="email" name="email"
+                 [(ngModel)]="contact.email"></app-input>
+    </div>
+    <button mat-mini-fab class="delete"
+            (click)="deleteContact(jobIndex, contactIndex)">
+      <span class="material-icons">delete</span>
+    </button>
+  </div>
+
+  <button mat-stroked-button (click)="addContact(jobIndex)">ADD CONTACT</button>
+
+  <button mat-mini-fab class="delete" (click)="deleteJob(jobIndex)">
+    <span class="material-icons">delete</span>
+  </button>
+</div>

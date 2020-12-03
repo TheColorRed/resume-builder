@@ -1,0 +1,20 @@
+<div *ngFor="let ed of resume.education;index as idx" class="section">
+  <app-input type="string" name="school" [(ngModel)]="ed.school"
+             [required]="true">
+  </app-input>
+  <app-select label="Degree" [(ngModel)]="ed.degree" [items]="degrees">
+  </app-select>
+  <app-input type="string" name="major" [(ngModel)]="ed.major">
+  </app-input>
+  <div fxLayoutGap="1rem">
+    <app-input fxFlex="0 1" type="month" name="startDate" label="Start Date"
+               [(ngModel)]="ed.start">
+    </app-input>
+    <app-input fxFlex="0 1" type="month" name="endDate"
+               label="End Date/Graduation Date" [(ngModel)]="ed.end">
+    </app-input>
+  </div>
+  <button mat-mini-fab class="delete" (click)="deleteEducation(idx)">
+    <span class="material-icons">delete</span>
+  </button>
+</div>

@@ -1,0 +1,21 @@
+:host {
+  .name {
+    margin-bottom: 0.2rem;
+  }
+  .contact {
+    & > span {
+      // color: lighten($color: #000000, $amount: 50);
+
+      &::after {
+        content: '';
+        padding-right: 10px;
+      }
+      &:not(:first-child) {
+        &::before {
+          content: '/';
+          padding-right: 10px;
+        }
+      }
+    }
+  }
+}

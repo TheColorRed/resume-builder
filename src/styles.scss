@@ -1,10 +1,12 @@
 // Custom Theming for Angular Material
 // For more information: https://material.angular.io/guide/theming
 @import '~@angular/material/theming';
-@import "./theme/primary";
-@import "./theme/secondary";
+@import './theme/primary';
+@import './theme/secondary';
 // Plus imports for other components in your app.
 
+$resume-primary: mat-palette($custom-primary);
+$resume-accent: mat-palette($custom-accent);
 // Include the common styles for Angular Material. We include this here so that you only
 // have to load a single css file for Angular Material in your app.
 // Be sure that you only ever include this mixin once!
@@ -21,13 +23,15 @@ $resume-warn: mat-palette($mat-red);
 
 // Create the theme object. A theme consists of configurations for individual
 // theming systems such as "color" or "typography".
-$resume-theme: mat-light-theme((
-  color: (
-    primary: $resume-primary,
-    accent: $resume-accent,
-    warn: $resume-warn,
+$resume-theme: mat-light-theme(
+  (
+    color: (
+      primary: $resume-primary,
+      accent: $resume-accent,
+      warn: $resume-warn,
+    ),
   )
-));
+);
 
 // Include theme styles for core and each component used in your app.
 // Alternatively, you can import and @include the theme mixins for each component
@@ -36,5 +40,14 @@ $resume-theme: mat-light-theme((
 
 /* You can add global styles to this file, and also import other style files */
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, 'Helvetica Neue', sans-serif;
+}
+.bold {
+  font-weight: bold;
+}

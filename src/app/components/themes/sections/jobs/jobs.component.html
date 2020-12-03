@@ -1,0 +1,18 @@
+<div class="jobs">
+  <div class="job" *ngFor="let job of jobList">
+    <div class="job-header">
+      <strong class="title">{{job.company}}</strong>
+      <span *ngIf="job.jobTitle">{{job.jobTitle}}</span>
+      <span class="dates" *ngIf="job.start">
+        <span class="start-date">{{job.start|toDate|date:'MM/YYYY'}}</span>
+        &ndash;
+        <span
+              class="end-date">{{(job.end|toDate|date:'MM/YYYY') || 'Present'}}</span>
+      </span>
+    </div>
+    <p *ngIf="job.description">{{job.description}}</p>
+    <ul *ngIf="job.duties">
+      <li *ngFor="let duty of job.duties">{{duty}}</li>
+    </ul>
+  </div>
+</div>

@@ -1,0 +1,5 @@
+<mat-form-field>
+  <mat-label>{{label || (name|titlecase) || ''}}</mat-label>
+  <input [type]="type" matInput [name]="name" [(ngModel)]="value"
+         [required]="required" #input>
+</mat-form-field>

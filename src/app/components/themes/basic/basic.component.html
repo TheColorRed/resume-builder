@@ -1,0 +1,17 @@
+<h1 *ngIf="resume.name" class="name">{{resume.name}}</h1>
+<p class="contact"
+   *ngIf="resume.contact && (resume.contact.phone || resume.contact.email || resume.contact.fax)">
+  <span *ngIf="resume.contact.phone">
+    <strong>Phone:</strong> {{resume.contact.phone|phone}}
+  </span>
+  <span *ngIf="resume.contact.fax">
+    <strong>Fax:</strong> {{resume.contact.fax|phone}}
+  </span>
+  <span *ngIf="resume.contact.email">
+    <strong>Email:</strong> {{resume.contact.email}}
+  </span>
+</p>
+<div *ngIf="resume.jobs.length>0">
+  <h2>Employment History</h2>
+  <app-jobs [jobs]="resume.jobs"></app-jobs>
+</div>

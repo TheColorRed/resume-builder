@@ -1,0 +1,6 @@
+<div class="ratings">
+  <span *ngFor="let v of maxArr" (click)="rate(v)">
+    <span class="material-icons" *ngIf="v > value">panorama_fish_eye</span>
+    <span class="material-icons" *ngIf="v <= value">lens</span>
+  </span>
+</div>

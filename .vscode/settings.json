@@ -1,0 +1,8 @@
+{
+  "html.format.wrapLineLength": 80,
+  "html.format.wrapAttributes": "aligned-multiple",
+  "indentRainbow.excludedLanguages": [
+    "plaintext",
+    "html"
+  ],
+}
